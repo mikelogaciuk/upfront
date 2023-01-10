@@ -1,0 +1,9 @@
+app:
+  store: FX666
+  build: 0.0.1
+  key: aCkeWoRTInGE
+  mode: development
+storage:
+  host: localhost
+  port: 7700
+  key: cArdaNgeliANOSeDYThEaSiBLEcLITe

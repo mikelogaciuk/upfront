@@ -1,0 +1,28 @@
+# Upfront Docker Compose
+
+version: "3.9"
+
+services:
+  meilisearch:
+    image: getmeili/meilisearch:latest
+    hostname: meilisearch
+    container_name: meilisearch
+    environment:
+      - MEILI_MASTER_KEY=${MEILI_MASTER_KEY:-cArdaNgeliANOSeDYThEaSiBLEcLITe}
+      - MEILI_ENV=${MEILI_ENV:-development}
+      - MEILI_NO_ANALYTICS=${MEILI_NO_ANALYTICS:-false}
+    networks:
+      - upfront.local
+    volumes:
+      - meili_db:/meili_data
+    ports:
+      - "7700:7700"
+
+volumes:
+  meili_db:
+    name: meili-storage
+
+networks:
+  upfront.local:
+    driver: bridge
+    name: upfront.local
